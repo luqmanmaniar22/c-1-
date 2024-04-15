@@ -1,0 +1,32 @@
+#include <iostream>
+
+class MyClass {
+public:
+    static int count;
+
+    // Static member function
+    static void incrementCount() {
+        count++;
+    }
+
+    void printCount() {
+        std::cout << "Count: " << count << std::endl;
+    }
+};
+
+// Initialize static member variable
+int MyClass::count = 0;
+
+int main() {
+    MyClass obj1, obj2;
+
+    // Call static member function using class name
+    MyClass::incrementCount();
+    obj1.printCount();  // Output: Count: 1
+
+    // Static member function can also be called using objects
+    obj1.incrementCount();
+    obj2.printCount();  // Output: Count: 2
+
+    return 0;
+}
